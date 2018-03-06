@@ -70,7 +70,7 @@ public class Line_follower implements KeyListener {
 
 	private void followLine() {
 		innerWheel.synchronizeWith(new BaseRegulatedMotor[] { outerWheel });
-		goForward();
+		logic();
 	}
 
 	private void startThread() {
@@ -94,11 +94,12 @@ public class Line_follower implements KeyListener {
 		innerWheel.forward();
 		outerWheel.forward();
 		innerWheel.endSynchronization();
-		logic();
+		
 
 	}
 	public void logic() {
-		
+
+		goForward();
 		while(light > 20) {
 			leftTurn();
 			System.out.println("Intensity: " + light);
